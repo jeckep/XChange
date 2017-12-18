@@ -25,7 +25,7 @@ public class DepthDemo {
     MarketDataService marketDataService = exchange.getMarketDataService();
 
     // Get the latest order book data for GHs/BTC
-    OrderBook orderBook = marketDataService.getOrderBook(new CurrencyPair(Currency.BTC, Currency.USD));
+    OrderBook orderBook = marketDataService.getOrderBook(new CurrencyPair(Currency.GHs, Currency.BTC));
 
     System.out.println("Current Order Book size for GHS/BTC: " + (orderBook.getAsks().size() + orderBook.getBids().size()));
     System.out.println("First Ask: " + orderBook.getAsks().get(0).toString());
