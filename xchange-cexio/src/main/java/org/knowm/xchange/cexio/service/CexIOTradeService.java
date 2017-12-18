@@ -8,6 +8,7 @@ import java.util.List;
 import org.knowm.xchange.Exchange;
 import org.knowm.xchange.cexio.CexIOAdapters;
 import org.knowm.xchange.cexio.dto.trade.CexIOArchivedOrder;
+import org.knowm.xchange.cexio.dto.trade.CexIOInstantOrder;
 import org.knowm.xchange.cexio.dto.trade.CexIOOpenOrder;
 import org.knowm.xchange.cexio.dto.trade.CexIOOrder;
 import org.knowm.xchange.dto.Order;
@@ -62,8 +63,9 @@ public class CexIOTradeService extends CexIOTradeServiceRaw implements TradeServ
 
   @Override
   public String placeMarketOrder(MarketOrder marketOrder) throws IOException {
+    CexIOInstantOrder order = placeCexIOMarketOrder(marketOrder);
 
-    throw new NotAvailableFromExchangeException();
+    return Long.toString(order.getId());
   }
 
   @Override

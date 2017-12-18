@@ -12,18 +12,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.knowm.xchange.cexio.dto.ArchivedOrdersRequest;
-import org.knowm.xchange.cexio.dto.CexIORequest;
-import org.knowm.xchange.cexio.dto.CexioSingleIdRequest;
-import org.knowm.xchange.cexio.dto.CexioSingleOrderIdRequest;
-import org.knowm.xchange.cexio.dto.PlaceOrderRequest;
+import org.knowm.xchange.cexio.dto.*;
 import org.knowm.xchange.cexio.dto.account.CexIOBalanceInfo;
 import org.knowm.xchange.cexio.dto.account.GHashIOHashrate;
 import org.knowm.xchange.cexio.dto.account.GHashIOWorkers;
-import org.knowm.xchange.cexio.dto.trade.CexIOArchivedOrder;
-import org.knowm.xchange.cexio.dto.trade.CexIOOpenOrder;
-import org.knowm.xchange.cexio.dto.trade.CexIOOpenOrders;
-import org.knowm.xchange.cexio.dto.trade.CexIOOrder;
+import org.knowm.xchange.cexio.dto.trade.*;
 
 import si.mazi.rescu.ParamsDigest;
 
@@ -47,6 +40,10 @@ public interface CexIOAuthenticated extends CexIO {
   @POST
   @Path("place_order/{currencyA}/{currencyB}/")
   CexIOOrder placeOrder(@HeaderParam("signature") ParamsDigest signer, @PathParam("currencyA") String currencyA, @PathParam("currencyB") String currencyB, PlaceOrderRequest placeOrderRequest) throws IOException;
+
+  @POST
+  @Path("place_order/{currencyA}/{currencyB}/")
+  CexIOInstantOrder placeInstantOrder(@HeaderParam("signature") ParamsDigest signer, @PathParam("currencyA") String currencyA, @PathParam("currencyB") String currencyB, PlaceInstantOrderRequest placeInstantOrderRequest) throws IOException;
 
   // GHash.IO calls
   @POST
