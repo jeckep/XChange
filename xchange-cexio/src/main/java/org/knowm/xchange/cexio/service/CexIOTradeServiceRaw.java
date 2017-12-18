@@ -90,6 +90,9 @@ public class CexIOTradeServiceRaw extends CexIOBaseService {
                     (marketOrder.getType() == BID ? CexIOOrder.Type.buy : CexIOOrder.Type.sell),
                     marketOrder.getOriginalAmount()
             ));
+    if (order.getErrorMessage() != null) {
+      throw new ExchangeException(order.getErrorMessage());
+    }
     return order;
   }
 

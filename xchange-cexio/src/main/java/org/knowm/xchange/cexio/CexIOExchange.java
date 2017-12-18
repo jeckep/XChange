@@ -11,7 +11,7 @@ import org.knowm.xchange.utils.nonce.AtomicLongIncrementalTime2014NonceFactory;
 import si.mazi.rescu.SynchronizedValueFactory;
 
 public class CexIOExchange extends BaseExchange implements Exchange {
-
+//
   private SynchronizedValueFactory<Long> nonceFactory = new AtomicLongIncrementalTime2014NonceFactory();
 
   @Override

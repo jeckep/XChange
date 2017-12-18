@@ -15,6 +15,7 @@ public class CexIOInstantOrder {
   private final String message;
   private final BigDecimal symbol1Amount;
   private final BigDecimal symbol2Amount;
+  private final String errorMessage;
 
   /**
    * non-JSON fields
@@ -24,24 +25,25 @@ public class CexIOInstantOrder {
 
   /**
    * Constructor
-   *
-   * @param id
+   *  @param id
    * @param time
    * @param type
    * @param message
    * @param symbol1Amount
    * @param symbol2Amount
+   * @param errorMessage
    */
   public CexIOInstantOrder(@JsonProperty("id") long id, @JsonProperty("time") long time, @JsonProperty("type") Type type,
                            @JsonProperty("message") String message,
                            @JsonProperty("symbol1Amount") BigDecimal symbol1Amount,
-                           @JsonProperty("symbol2Amount") BigDecimal symbol2Amount) {
+                           @JsonProperty("symbol2Amount") BigDecimal symbol2Amount, @JsonProperty("error") String errorMessage) {
     this.id = id;
     this.time = time;
     this.type = type;
     this.message = message;
     this.symbol1Amount = symbol1Amount;
     this.symbol2Amount = symbol2Amount;
+    this.errorMessage = errorMessage;
   }
 
   public long getId() {
@@ -59,7 +61,21 @@ public class CexIOInstantOrder {
     return type;
   }
 
+  public String getMessage() {
+    return message;
+  }
 
+  public BigDecimal getSymbol1Amount() {
+    return symbol1Amount;
+  }
+
+  public BigDecimal getSymbol2Amount() {
+    return symbol2Amount;
+  }
+
+  public String getErrorMessage() {
+    return errorMessage;
+  }
 
   public String getTradableIdentifier() {
 

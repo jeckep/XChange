@@ -10,6 +10,7 @@
         <version>4.3.2-SNAPSHOT</version>
     </parent>
 
+    <groupId>biz.jbtcinfo.xchange</groupId>
     <artifactId>xchange-cexio</artifactId>
 
     <name>XChange Cex.io</name>
